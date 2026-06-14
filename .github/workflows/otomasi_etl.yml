@@ -1,0 +1,23 @@
+name: Market Price Daily Pipeline
+
+on:
+  schedule:
+   - cron: '0 1 * * *'
+  workflow_dispatch:
+
+jobs:
+  jalankan-script-python:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Mengambil kode dari repository
+        uses: actions/checkout@v3
+      - name: 2. Menyiapkan Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: 3. Menginstal library yang dibutuhkan (Pandas, SQLAlchemy, dll)
+        run: |
+          pip install pandas requests sqlalchemy psycopg2-binary
+      - name: 4. Menjalankan Script ETL
+        run: python scripts/main.py
