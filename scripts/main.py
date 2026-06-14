@@ -29,7 +29,7 @@ df = pd.DataFrame(daftar_produk)
 df_bersih = df[['id', 'title', 'price', 'rating']]
 
 print("Bentuk Data Setelah Di-Transformasi (5 Data Pertama):")
-display(df_bersih.head())
+print(df_bersih.head())
 
 from sqlalchemy import create_engine
 
